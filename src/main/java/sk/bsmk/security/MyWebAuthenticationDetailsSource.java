@@ -13,9 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 public class MyWebAuthenticationDetailsSource extends WebAuthenticationDetailsSource {
 
   @Override
-  public WebAuthenticationDetails buildDetails(HttpServletRequest context) {
-    WebAuthenticationDetails details = super.buildDetails(context);
-    return details;
+  public WebAuthenticationDetails buildDetails(HttpServletRequest request) {
+    return new MyWebAuthenticationDetails(request);
   }
 
 }
