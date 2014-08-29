@@ -18,7 +18,7 @@ public class ExternalAuthenticationProvider implements AuthenticationProvider {
 
   @Override
   public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-    // TODO
+
     // send request to external service
     final String username = authentication.getPrincipal().toString();
     final String password = authentication.getCredentials().toString();
@@ -28,13 +28,8 @@ public class ExternalAuthenticationProvider implements AuthenticationProvider {
     if (!"user".equals(username) || !"password".equals(password) || !"a".equals(details.getAdditionalInfo1()) || !"b".equals(details.getAdditionalInfo2()))
       throw new BadCredentialsException("authentication failed");
 
-
-
-
-    UsernamePasswordAuthenticationToken newAuthentication = new UsernamePasswordAuthenticationToken(username, null, Collections.<GrantedAuthority>emptyList());
-
-    return newAuthentication;
-    //return new TokenAuthentication();
+    // we have to store password
+    return new UsernamePasswordAuthenticationToken(username, password, Collections.<GrantedAuthority>emptyList());
   }
 
   @Override
