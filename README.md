@@ -2,11 +2,12 @@ spring-stateful-rest-security
 =============================
 
 How to secure stateful rest-like backend with spring security. (WTF? Stateful REST? Just because.)
-see sk.bsmk.controllers.SecurityIntegrationTest
+
+see sk.bsmk.controllers.SecurityIntegrationTest for details
 
 POST /rest/login
 ----------------
-Only resource that is not protected with csrf token. After successful login csrf-token is returned in headers.
+Only resource that is not protected with csrf token. After successful login, csrf-token is returned in headers.
 
 GET /rest/secured
 -----------------
